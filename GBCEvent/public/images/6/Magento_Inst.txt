@@ -1,0 +1,30 @@
+
+
+Magento through Docker installation process....
+
+
+1. Hyper-V is enabled, but installer says Vbox is not allowed for win10 Hom edition.
+Some guys say vbox has many glitches. we, say, use, toolbox even though it is outdated.
+
+Some times it seems to me that the onlu docker I can get is Desktop version after registration...
+But at the college I installed it with no reg at all for sure..
+
+
+2. Other guy says I can install Vbox even though it is not allowed:
+
+https://golb.hplar.ch/2019/01/docker-on-windows10-home-scratch.html
+
+3. Official site gives instructions on how to install Toolbox:
+https://docs.docker.com/toolbox/toolbox_install_windows/
+
+3. Some info how to install Magento on the Docker:
+https://rafaelstz.github.io/blog/magento/Install-Magento2-Docker-Development.html
+https://magenticians.com/installing-magento-2-5-minutes-docker/ 
+
+4. Max says use hyper-v to install linux and then install docker containers..
+hz!!!: 
+https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/quick-create-virtual-machine
+
+I have turned on hypervisor function and linux support on: 
+Control Panel\Programs\ Turn Windows feateures on or off 
+Now it asks to reboot! 8(

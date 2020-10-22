@@ -1,0 +1,1 @@
+I put fontawesome styles in this 'svg' folder, but i am still unsure how to use those..
