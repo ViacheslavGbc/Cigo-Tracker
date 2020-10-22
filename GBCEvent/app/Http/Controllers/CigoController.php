@@ -16,6 +16,20 @@ class CigoController extends Controller
     
      public function neworder(Request $request)
     {
+        $this->validate(request(), [
+            'fname' => 'required',
+            'email' => ['required', 'string', 'email', 'max:255', 
+                'regex:/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i',],
+            'phone' => ['required',
+                'regex:/^[+]*1[(]{0,1}[0-9]{3}[)]{0,1}[0-9]{3}-[0-9]{2}-{0,1}[0-9]{2}$/i',],
+            'sdate' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'zip' => 'required',
+            'country' => 'required',
+        ]);
+        
         $order = new Cigo();
    
         $order->fname = $request->fname;

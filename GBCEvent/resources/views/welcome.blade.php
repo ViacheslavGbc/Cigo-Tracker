@@ -78,11 +78,10 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 offset-2">
+                    <div class="col-md-10 offset-2">
                         <div class="card">
-                            <div class="card-header h2" align="center"><i class="far fa-calendar-alt"></i>&nbsp;Add an Order
-                            </div>
-                            <div class="card-header h2">
+                            <div class="card-header h5" align="left"><i class="far fa-calendar-alt"></i>&nbsp;Add an Order  </div>
+                            <div class="card-header h7">
                                 
                                    <!-- <form class="navbar-form navbar-left form-inline" method="get" action="/searchEvent">
                                           <div class="form-group">
@@ -95,71 +94,88 @@
                                     <form action="/neworder" name="orderForm" method="post">
                                         <div class="row">
                                             <label class="col-form-label col-6">First Name*</label>
-                                            <input type="text" class="form-control col-6" name="fname" value="First Name" required>
-                                        </div>
-                                        <br>
+                                            <label class="col-form-label col-2">Last Name</label>
+                                        </div>    
                                         <div class="row">
-                                            <label class="col-form-label col-6">Last Name</label>
-                                            <input type="text" class="form-control col-6" name="lname" value="Last Name" required>
-                                        </div>
-                                         <div class="row">
+                                            <input type="text" class="form-control col-6" name="fname" value="{{ old('fname') }}" placeholder="First Name" required>
+                                            <input type="text" class="form-control col-6" name="lname" value="{{ old('lname') }}" placeholder="Last Name" required>
+                                        </div>    
+                                        
+                                        <div class="row">
                                             <label class="col-form-label col-6">Email</label>
-                                            <input type="text" class="form-control col-6" name="email" value="youremail@sample.com" required>
+                                            <label class="col-form-label col-6">Phone Number*</label>
                                         </div>
                                          <div class="row">
-                                            <label class="col-form-label col-6">Phone Number*</label>
-                                            <input type="text" class="form-control col-6" name="phone" value="+1(647)647-1234" required>
+                                            <input type="text" class="form-control col-6" name="email" value="{{ old('email') }}" placeholder="youremail@sample.com" required>
+                                            <input type="text" class="form-control col-6" name="phone" value="{{ old('phone') }}" placeholder="+1(647)647-1234" required>
                                         </div>
                                         
-                                        <br>
                                         <div class="row">
-                                            <label class="col-form-label col-6"> Scheduled Date* </label>
-                                            <div class="col-6">
-                                                <input type="date" class="form-control" name="sdate" value="2020-07-31" required>
-                                          
-                                            </div>
+                                            <label class="col-form-label col-7"> Scheduled Date* </label>
+                                        </div>    
+                                        <div class="raw">
+                                            <input type="date" class="form-control col-6" name="sdate" value="{{ old('sdate') }}" placeholder="2020-07-31" required>
+                                        </div>
                                         <div class="row">
                                             <label class="col-form-label col-6">Street Address*</label>
-                                            <input type="text" class="form-control col-6" name="address" value="" required>
+                                        </div>    
+                                        <div class="row">
+                                        <input type="text" class="form-control col-12" name="address" value="{{ old('address') }}" required>
                                         </div>
                                          <div class="row">
                                             <label class="col-form-label col-6">City*</label>
-                                            <input type="text" class="form-control col-6" name="city" value="" required>
-                                        </div>
-                                         <div class="row">
                                             <label class="col-form-label col-6">State/Province*</label>
-                                            <input type="text" class="form-control col-6" name="state" value="" required>
+                                            
                                         </div>
                                          <div class="row">
-                                            <label class="col-form-label col-6">Postal/Zip Code*</label>
-                                            <input type="text" class="form-control col-6" name="zip" value="" required>
+                                            <input type="text" class="form-control col-6" name="city" value="{{ old('city') }}" required>
+                                            <input type="text" class="form-control col-6" name="state" value="{{ old('state') }}" required>
                                         </div>
                                         
-                                        </div>
-                                        <br>
-                                        <div class="row">
+                                         <div class="row">
+                                            <label class="col-form-label col-6">Postal/Zip Code*</label>
                                             <label class="col-form-label col-6">Country*</label>
-                                            <select class="form-control col-6" name="country">
+                                        </div>
+                                        
+                                        <div class="row">
+                                            <input type="text" class="form-control col-6" name="zip" value="{{ old('zip') }}" required>
+                                            
+                                            <select class="form-control col-6" name="country" value="{{ old('country') }}">
                                                 <option name="ca">Canada</option>
-                                                <option name="br">Brasil</option>
-                                                <option name="us">Mexico</option>
-                                                <option name="mx">United States</option>
+                                                <option name="gu">Guatemala</option>
+                                                <option name="mx">Mexico</option>
+                                                <option name="us">United States</option>
                                                 
                                             <!--    <option name="cl" < ?php if($selected=='Casa Loma') echo "selected='selected'";?>>Casa Loma</option>
                                                 <option name="sj" < ?php if($selected=='St.James') echo "selected='selected'";?>>St.James</option>
                                                 <option name="wf" < ?php if($selected=='Waterfront') echo "selected='selected'";?>>Waterfront</option> -->
                                             </select>
                                         </div>
-                                        <br>
+                                        
                                         <hr>
                                         {{csrf_field()}}
-                                        <div class="offset-4">
+                                        <div class="offset-9">
+                                        
+                                        <a href="" class="btn btn-danger" name="Cancel" $("Cancel").on("click", $('#orderForm')[0].reset()) >Cancel</a>
                                         <input type="submit"  class="btn btn-success" name="Submit" value="Submit">&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a href="" class="btn btn-success" name="Cancel" $("Cancel").on("click", $('#orderForm')[0].reset()) >Cancel</a>
+                                        
                                         </div>
+                                        
+                                         @if(count($errors))
+                                            <div class="form-group">
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach($errors->all() as $error)
+                                                            <li>{{$error}}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        @endif
+                                        
                                 </form>
                             </div>
-                            
+                            </div>
                             
                             
                             <!--
@@ -180,39 +196,28 @@
                            
                             -->
                             </div>
-                                <div class="card-body">
+                                <div class="card-body col-md-10 offset-2">
                                     @if (session('status'))
                                         <div class="alert alert-success">
                                             {{ session('status') }}
                                         </div>
                                     @endif
+                                <div class="card-header h5" align="left"> <i class="fas fa-check-square"></i>&nbsp;&nbsp;Existing Orders  </div>
+                                 
                                   
                                     <table class = "table table-striped table table-bordered table table-hover">
                                         
                                              <thead class="table-active">
                                             <th>First Name</th>
                                             <th>Last Name</th>
-                                            <th>Date</th>
-                                            <th>     </th>
-                                            <th>Status</th>
-                                            <th>()</th>
+                                            <th colspan="3">Date</th>
+                                            <th></th>
+                                            <th></th>
+                                            
                                             
                                             </thead>
                                             <tbody>
-                                            @if(isset($events) )    
-                                            @foreach($events as $event)
-                                              @if ($event->status_enabled > 0 AND $event->status_enabled < 3)  <!-- if event is approved by admin - display it ! -->
-                                                <tr>
-                                                    <td><a href="/viewrec/{{$event->id}}">{{$event->eventName}}</a></td>
-                                                    <td>{{$event->eventOwner}}</td>
-                                                    <td>{{$event->eventDate1}},&nbsp;&nbsp;</br>{{$event->eventTime1}}</td>
-                                                    <td>{{$event->eventDate2}},&nbsp;&nbsp;</br>{{$event->eventTime2}}</td>
-                                                    <td>{{$event->eventLocation}}, {{$event->eventRoom}}</td>
-                                                    <td>{{$event->eventDescription}}</td>
-                                                </tr>
-                                              @endif
-                                             @endforeach
-                                             @endif
+                                            
                                              
                                             @if(isset($cigos) )    
                                             @foreach($cigos as $order)
@@ -220,11 +225,12 @@
                                                 <tr>
                                                     <td>{{$order->fname}}</td>
                                                     <td>{{$order->lname}}</td>
-                                                    <td>{{$order->date}}</td>
-                                                    <td></td>
+                                                    <td colspan="3">{{$order->sdate}}</td>
+                                                    
                                                     
                                                     
                                                     <td>
+                                                        <div class="row">
                                                         <div class="dropdown">
                                                             
                                                             @switch($order->status)
@@ -264,30 +270,32 @@
                                                             <a class="dropdown-item" href="newstatus/{{$order->id}}/0">Pending</a>
                                                             <a class="dropdown-item" href="newstatus/{{$order->id}}/1">Assigned</a>
                                                             <a class="dropdown-item" href="newstatus/{{$order->id}}/2">On Route</a>
-                                                            <a class="dropdown-item" href="newstatus/{{$order->id}}/3">Done</a>
+                                                            <a class="dropdown-item" href="newstatus/{{$order->id}}/3">  Done  </a>
                                                             <div class="dropdown-divider"></div>
                                                             <a class="dropdown-item" href="newstatus/{{$order->id}}/4">Cancelled</a>
                                                           </div>
                                                         </div>
-                                                        
-                                                    </td>
+                                                    </td>    
                                                     
                                                     
+                                                    <td>
                                                     <!-- only while order has pending or assigned status, it can be deleted-->
                                                     @if ((int)$order->status <2)  
-                                                        <td><a onclick="return myFunction();" href="/deleteorder/{{$order->id}}">(X)</a></td>
+                                                        <a class="btn btn-lg" onclick="return myFunction();" href="/deleteorder/{{$order->id}}"><i class="fas fa-times-circle"></i></a></td>
                                                         <script>
                                                             function myFunction() {
                                                                 if(!confirm("Are you sure about deleting this order?"))
                                                                      {event.preventDefault()} else
                                                                 alert("This order has been deleted from the system!");
                                                             }
+                                                            
                                                         </script>
                                                     @else
-                                                        <td>(X)</td>
+                                                        <i class="btn btn-lg far fa-times-circle"></i></td>
                                                     @endif
+                                                    </div>
                                                 </tr>
-                                         
+                                                
                                              @endforeach
                                              @endif 
                                              
@@ -296,8 +304,8 @@
                                         <br>
                                         
                                         <div class="col-6 offset-4">
-                                         @if(isset($events) )      
-                                            {{$events->links()}}  <!-- Pagination-->
+                                         @if(isset($orders) )      
+                                            {{$orderss->links()}}  <!-- Pagination-->
                                          @endif    
                                         </div>
                                     
@@ -305,9 +313,7 @@
                                    
 
                             </div>
-                                        <!--<div class="col-2">
-                                            <img src="{{ URL::asset('images/banner.png') }}"/>
-                                        </div> -->
+                                        
                         </div>
                     </div>
                 </div>
